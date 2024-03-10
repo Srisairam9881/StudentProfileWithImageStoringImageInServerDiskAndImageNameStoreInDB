@@ -1,0 +1,42 @@
+<h2 class="sub-heading">Student List</h2>
+<hr>
+<table class="table table-bordered border-primary">
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Date of Birth</th>
+<th>Gender</th>
+<th>Email Id</th>
+<th>Phone Number</th>
+<th>Percentage</th>
+<th>Profile</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let studentResponse of students">
+<td style="width: 140vh;">{{ studentResponse.student.name }}</td>
+<td>{{ studentResponse.student.age }}</td>
+<td style="width: 70vh;">{{studentResponse.student.dob}}</td>
+<td>{{studentResponse.student.gender}}</td>
+<td>{{studentResponse.student.email}}</td>
+<td>{{studentResponse.student.phoneNo}}</td>
+<td>{{studentResponse.student.percentage}}</td>
+<td>
+<img [src]="studentResponse.imageUrl" alt="Student Image" width="90px" height="95px">
+</td>
+<td style="width: 190vh;">
+<button (click)="deleteStudent(studentResponse.student.id)" class="btn btn-danger"> 
+<img src="../../../assets/Delete.png" class="image1"> 
+</button>
+<button (click)="updateStudent(studentResponse.student.id)" class="btn btn-info" style="margin-left: 14px"> 
+<img src="../../../assets/Edit.png" class="image2"> 
+</button>
+<button (click)="studentDetails(studentResponse.student.id)" class="btn btn-primary" style="margin-left: 14px"> 
+<img src="../../../assets/Details.png" class="image3"> 
+</button> 
+</td>
+</tr>
+</tbody>
+</table>
